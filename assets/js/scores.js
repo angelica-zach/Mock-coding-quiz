@@ -18,7 +18,7 @@ function saveScore(initials, score) {
 function updateHighscores() {
     highscores.sort(function (a, b) {
         return b.score - a.score;
-    })};
+    });
   
 // save to local storage
     localStorage.setItem('highscores', JSON.stringify(highscores));
@@ -30,6 +30,9 @@ function updateHighscores() {
         li.textContent = `${highscores[i].name}: ${highscores[i].score}`;
         highscoreList.appendChild(li);
     }
+    localStorage.removeItem("initials");
+    localStorage.removeItem("score")
+};
 // retrieving highscores
  function retrieveHighscores() {
         var storedHighscores = localStorage.getItem('highscores');

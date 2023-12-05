@@ -6,6 +6,7 @@ var endScreen =document.getElementById("end-screen");
 var submit=document.getElementById("submit");
 var initials=document.getElementById("initials");
 
+//array of objects for posible questions and options
 var questionBank=[
         {
             question: "Which isnt a coding language?",
@@ -19,10 +20,10 @@ var questionBank=[
         
     }
 ];
-
+// initalisiation
 var currentQuestionIndex= 0;
 var score=0;
-
+// main game play
 function questionBankPlay(){
     title.textContent = ""; 
     choices.innerHTML = "";
@@ -70,7 +71,7 @@ function questionBankPlay(){
 };
 
 function moveToNextQuestion(){
-
+// question index moves to next question
 currentQuestionIndex++;
 
 if (currentQuestionIndex < questionBank.length) {
@@ -95,6 +96,7 @@ function gameOver(){
             var name=initials.value.trim();
             localStorage.setItem("initials",name);
             localStorage.setItem("score",score);
+            // link to other html page
             window.location.href = "highscores.html";
     };
 });

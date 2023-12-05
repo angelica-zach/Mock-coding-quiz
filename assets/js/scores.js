@@ -1,11 +1,11 @@
-
+// calling all needed variables
 var highscoreList= document.querySelector("#highscores")
 var highscores = [];
 var clear=document.querySelector("#clear");
 
-
+//loading as soon as page loads
 retrieveHighscores();
-saveScore();
+;
 // saving scores to object
 function saveScore(initials, score) {
     var initials = localStorage.getItem("initials");
@@ -30,6 +30,7 @@ function updateHighscores() {
         li.textContent = `${highscores[i].name}: ${highscores[i].score}`;
         highscoreList.appendChild(li);
     }
+    //remove old variables
     localStorage.removeItem("initials");
     localStorage.removeItem("score")
 };
@@ -42,8 +43,9 @@ function updateHighscores() {
             updateHighscores();
         }
     };
-
+//clear button
     clear.addEventListener('click', function(event){
         localStorage.removeItem('highscores'); 
         updateHighscores();
     });
+    saveScore();
